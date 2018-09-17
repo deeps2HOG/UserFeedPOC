@@ -13,7 +13,7 @@ public class Feed {
     Feed(String videoUrl) {
         mPlayerConfig = new PlayerConfig.Builder()
                 .file(videoUrl)
-                .controls(false)
+                .controls(true)
                 .build();
     }
 

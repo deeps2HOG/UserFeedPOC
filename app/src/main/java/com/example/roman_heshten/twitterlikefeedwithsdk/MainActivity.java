@@ -1,5 +1,6 @@
 package com.example.roman_heshten.twitterlikefeedwithsdk;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,33 +21,37 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (savedInstanceState != null) {
-            mSelectedPosition = savedInstanceState.getInt(EXTRA_POSITION);
-        }
-        setupRecyclerView(mSelectedPosition);
+
+        Intent intent = new Intent(this, JWFeedActivity.class);
+        startActivity(intent);
+
+//        if (savedInstanceState != null) {
+//            mSelectedPosition = savedInstanceState.getInt(EXTRA_POSITION);
+//        }
+//        setupRecyclerView(mSelectedPosition);
     }
 
     @Override
     protected void onResume() {
-        updateListWithLifecycleEvent(FeedAdapter.ACTION_LIFECYCLE_RESUME);
+        //updateListWithLifecycleEvent(FeedAdapter.ACTION_LIFECYCLE_RESUME);
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        updateListWithLifecycleEvent(FeedAdapter.ACTION_LIFECYCLE_PAUSE);
+        //updateListWithLifecycleEvent(FeedAdapter.ACTION_LIFECYCLE_PAUSE);
         super.onPause();
     }
 
     @Override
     protected void onDestroy() {
-        destroyInstances();
+        //destroyInstances();
         super.onDestroy();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt(EXTRA_POSITION, mSelectedPosition);
+        //outState.putInt(EXTRA_POSITION, mSelectedPosition);
         super.onSaveInstanceState(outState);
     }
 
